@@ -5,11 +5,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dnd.component.html',
   styleUrls: ['./dnd.component.css']
 })
-export class DndComponent implements OnInit {
-
+export class DndComponent {
+  private fileList : any = [];
+  private invalidFiles : any = [];
   constructor() { }
 
-  ngOnInit() {
+  onFilesChange(fileList : Array<File>){
+    this.fileList = fileList;
+  }
+
+  onFileInvalids(fileList : Array<File>){
+    this.invalidFiles = fileList;
   }
 
 }
