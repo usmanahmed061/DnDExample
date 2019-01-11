@@ -28,11 +28,11 @@ export class DndDirective {
     evt.preventDefault();
     evt.stopPropagation();
     this.background = '#eee';
-    let files = evt.dataTransfer.files;
+    let files: Array<File> = evt.dataTransfer.files;
     let valid_files : Array<File> = [];
     let invalid_files : Array<File> = [];
     if(files.length > 0){
-      forEach(files, (file: File) =>{
+      files.forEach((file: File) =>{
         let ext = file.name.split('.')[file.name.split('.').length - 1];
         if(this.allowed_extensions.lastIndexOf(ext) != -1){
           valid_files.push(file);
